@@ -1,11 +1,14 @@
 class Airport {
   
   constructor(){
-    this.grounded = [];
+    this.grounded = []; 
+    this.max_capacity = 1;
   }
 
-  land(plane) {
-    // let planes = plane
+  land(plane) {   
+    if (this.max_capacity <= this.grounded.length) {
+      throw new Error("Landing is not possible")
+    }
     this.grounded.push(plane)
       return plane
   }
@@ -13,7 +16,6 @@ class Airport {
   confirmTakeoff(plane) {
     this.grounded.splice(plane)
   }
-
 
 }
 
