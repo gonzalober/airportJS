@@ -6,9 +6,7 @@ class Airport {
   }
 
   land(plane) {   
-    if (this.max_capacity <= this.grounded.length) {
-      throw new Error("Landing is not possible")
-    }
+    this._airportFull()
     this.grounded.push(plane)
       return plane
   }
@@ -16,6 +14,17 @@ class Airport {
   confirmTakeoff(plane) {
     this.grounded.splice(plane)
   }
+
+  _full() {
+   return this.max_capacity <= this.grounded.length;
+  }
+
+  _airportFull() {
+    if (this._full() === true ) {
+     throw new Error("Landing is not possible")
+    }
+  }
+
 
 }
 

@@ -37,7 +37,6 @@ describe('Airport', function(){
     airport.land(plane)
     plane2 = 'plane2'
     expect(function() {airport.land(plane2)}).toThrow(new Error("Landing is not possible"));
-
   });
 
 });
